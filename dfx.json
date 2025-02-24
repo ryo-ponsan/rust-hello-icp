@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "rust_hello_backend": {
+      "candid": "src/rust_hello_backend/rust_hello_backend.did",
+      "package": "rust_hello_backend",
+      "type": "rust"
+    },
+    "rust_hello_frontend": {
+      "dependencies": [
+        "rust_hello_backend"
+      ],
+      "source": [
+        "src/rust_hello_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "rust_hello_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
