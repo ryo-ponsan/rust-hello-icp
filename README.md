@@ -1,109 +1,71 @@
-# Rust Hello World ICP Project
+# Playgroundに配置しました - Rust Hello World ICP プロジェクト
 
-This project demonstrates a simple "Hello, world!" canister built using Rust for the Internet Computer. The canister exposes a basic function (e.g., `greet`) that returns a greeting message when called.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Deployment Instructions](#deployment-instructions)
-  - [Deploying to Playground](#deploying-to-playground)
-- [Testing and Verification](#testing-and-verification)
-- [Submission Details](#submission-details)
-- [GitHub Repository](#github-repository)
+## 概要
+本プロジェクトは、Rustで作成したシンプルな「Hello, world!」キャニスターです。  
+キャニスターの `greet` 関数を呼び出すと、"Hello, world!" というメッセージが返されます。  
+なお、今回のデプロイはInternet Computer Playgroundを利用して行いました。
 
 ---
 
-## Overview
+## デプロイ手順の説明
 
-This sample project was created using the command:
-
+### 1. プロジェクトの作成
+以下のコマンドを実行して、Rustのサンプルキャニスターを作成しました。
 ```bash
 dfx new rust_hello --type=rust
+cd rust_hello
 ```
 
-It consists of a backend canister that, when its `greet` method is invoked, returns a greeting message (e.g., `"Hello, world!"`). The project can be deployed on the Internet Computer Playground, which is a test-like environment that does not consume real cycles.
+### 2. Playgroundへのデプロイ
+1. プロジェクトディレクトリに移動後、以下のコマンドでPlayground用のネットワークへデプロイを実行しました。
+   ```bash
+   dfx deploy --network playground
+   ```
+2. コマンド実行後、ターミナルログにキャニスターIDが表示されます。  
+   このキャニスターIDは、実際にデプロイが成功した証拠となります。  
 
 ---
 
-## Deployment Instructions
+## 簡単な動作確認ガイド
 
-### Deploying to Playground
+### バックエンドキャニスターの確認
+1. ターミナルで以下のコマンドを実行し、`greet` 関数の動作をテストしました。
+   ```bash
+   dfx canister call rust_hello_backend greet world
+   ```
+2. 正常動作の場合、以下のような出力が得られます。
+   ```
+   "Hello, world!"
+   ```
+   この出力により、キャニスターが正しく機能していることを確認できます。
 
-1. **Set Up the Project Environment:**
+### フロントエンドキャニスターの確認
+- デプロイ時に表示されたURL（例：`https://75i2c-tiaaa-aaaab-qacxa-cai.icp0.io/`）にブラウザでアクセスし、画面の表示を確認しました。  
+- こちらの画面キャプチャ、動画キャプチャも、動作確認の証拠として保存しています。
 
-   - Ensure you have the project cloned or set up on your machine.
-   - Navigate into the project directory:
-     ```bash
-     cd rust_hello
-     ```
+#### 画面キャプチャ
+![画面キャプチャ](./images/playground.png)
 
-2. **Deploy to the Playground Network:**
-
-   - Use the following command to deploy the project to the Playground network:
-     ```bash
-     dfx deploy --network playground
-     ```
-   - The deployment log will display the canister IDs for both backend and frontend canisters.  
-     *Note:* These canister IDs serve as evidence of successful deployment.
-
-3. **Using the Playground Web UI (Optional):**
-
-   - You can also deploy and test your canister through the Playground UI.
-   - Visit the [ICP Playground](https://internetcomputer.org/docs/current/developer-docs/developer-tools/ide/playground/) and import your project from GitHub or copy-paste your code into the editor.
-   - Use the "Deploy" button in the UI, and once deployed, the Playground will show your canister’s Candid UI and its ID.
-   - Take a screenshot of the deployed canister and its Candid UI as proof of deployment.
+#### 動画キャプチャ
+![動画キャプチャ](./images/playground.gif)
+[youtube](https://youtu.be/WJJOxdVAgU4)
 
 ---
 
-## Testing and Verification
+## 提出内容
 
-To verify that the canister is working correctly, perform the following tests:
+今回の提出物には以下の内容が含まれています：
 
-1. **Backend Function Test:**
-
-   - Open your terminal and run:
-     ```bash
-     dfx canister call rust_hello_backend greet world
-     ```
-   - The expected output is:
-     ```
-     "Hello, world!"
-     ```
-   - This confirms that the backend canister is functioning as intended.
-
-2. **Frontend Verification (if applicable):**
-
-   - If your project includes a frontend canister, use the URL provided in the deployment log (e.g., `http://127.0.0.1:4943/?canisterId=...` for local or the Playground URL).
-   - Visit the URL in your browser to see the UI and capture a screenshot as additional evidence.
+- **「Playgroundへ配置した」という証拠**  
+  - ターミナルログのスクリーンショットおよびフロントエンドキャニスターのUI画面キャプチャ
+- **GitHubリポジトリリンク**  
+  - プロジェクトのソースコードとこのREADMEを含むリポジトリのURL
+- **デプロイ手順の説明および動作確認ガイド**  
+  - 本READMEに記載済み
 
 ---
 
-## Submission Details
+## GitHubリポジトリ
 
-When submitting your project (Wave3), please include the following:
-
-- **Canister Evidence:**  
-  - Provide the canister ID(s) displayed during deployment, **or** include a screenshot from the Playground UI showing that your canister has been successfully deployed.
-
-- **GitHub Repository Link:**  
-  - Include the URL of your GitHub repository where the code and documentation (this README) are hosted.
-
-- **Deployment Instructions and Verification Guide:**  
-  - This README contains detailed deployment instructions and a guide for verifying the canister's functionality.
-  - If you used any custom deployment steps, ensure that they are clearly documented here.
-
----
-
-## GitHub Repository
-
-You can find the full project, including this README and all source code, at:
-
-[https://github.com/yourusername/rust-hello-icp](https://github.com/yourusername/rust-hello-icp)
-
-*Replace the above URL with the actual URL of your repository.*
-
----
-
-This README provides all the required information for Wave3 submission, including the deployment procedure for the Playground environment, verification steps, and submission details.
+プロジェクトのコードとドキュメントは本リポジトリで管理しています：  
+[https://github.com/ryo-ponsan/rust-hello-icp](https://github.com/ryo-ponsan/rust-hello-icp)  
