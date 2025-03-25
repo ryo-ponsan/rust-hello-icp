@@ -5,7 +5,7 @@
 
 
 ---
-# Playgroundに配置しました - Rust Hello World ICP プロジェクト
+# Wave3：Playgroundに配置しました - Rust Hello World ICP プロジェクト
 
 ## 概要
 本プロジェクトは、Rustで作成したシンプルな「Hello, world!」キャニスターです。  
