@@ -1,3 +1,10 @@
+# Wave4 productの提出(2025/3/26)
+
+- [README](https://github.com/ryo-ponsan/trust-chat-platform)
+- [デモサイト](https://ckvys-wqaaa-aaaae-qcu5a-cai.icp0.io/)
+
+
+---
 # Playgroundに配置しました - Rust Hello World ICP プロジェクト
 
 ## 概要
